@@ -1,0 +1,15 @@
+
+.alert {
+    color: burlywood;
+    padding: 7px;
+    text-align: center;
+}
+
+
+.alert-error {
+    background-color: brown;
+}
+
+.alert-success {
+    background-color:chartreuse;
+}

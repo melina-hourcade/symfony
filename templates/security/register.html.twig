@@ -1,0 +1,31 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block title 'Register' %}
+{% block body %}
+	<h1>
+		Register
+	</h1>
+	<div class="wrapper fadeInDown">
+		<div id="formContent">
+			<!-- Tabs Titles -->
+			<!-- Icon --><div class="fadeIn first"> </div>
+                
+
+			{{ form_start(registrationForm) }}
+				{{ form_widget(registrationForm) }}
+
+				<input type="submit" value="Register" formnovalidate>
+			{{ form_end(registrationForm) }}
+
+
+		
+			<div id="formFooter">
+				<a class="underlineHover" href="#">Forgot Password?</a>
+			</div>
+
+		</div>
+	</div>
+
+
+{% endblock %}
+

@@ -16,6 +16,7 @@ use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
 use Symfony\Component\Security\Http\Authenticator\AuthenticatorInterface;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\CsrfTokenBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\PasswordUpgradeBadge;
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\RememberMeBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
@@ -46,6 +47,13 @@ class LoginFormAuthenticator extends AbstractAuthenticator
         //dd($request->request->get('email'));
 
         $user = $this->userRepository->findOneByEmail($request->request->get('email'));
+        // saving in session of what is entered by the user
+        $request->getSession()->set(
+            'app_login_form_old_email', 
+            $request->request->get('email') 
+        );
+
+
         if (!$user) {
             throw new CustomUserMessageAuthenticationException('invalid Credentials!');
         }
@@ -53,7 +61,10 @@ class LoginFormAuthenticator extends AbstractAuthenticator
         return new Passport(
             $user,
             new PasswordCredentials($request->request->get('password')), [
-                new CsrfTokenBadge('login_form', $request->request->get('csrf_token'))
+                new CsrfTokenBadge('login_form', $request->request->get('csrf_token')),
+            //for remerber_me
+                new RememberMeBadge 
+
 
         //a revoir et utiliser si l'encodage change     
         //new PasswordUpgradeBadge($request->get('password'), $this->userRepository)
@@ -64,6 +75,7 @@ class LoginFormAuthenticator extends AbstractAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
+         $request->getSession()->getFlashBag()->add('success', 'Vous êtes connecté');
         return new RedirectResponse($this->urlGenerator->generate('app_home'));
     }
    
@@ -71,7 +83,8 @@ class LoginFormAuthenticator extends AbstractAuthenticator
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
         //dd($exception);
-        dd('failure');
+        $request->getSession()->getFlashBag()->add('error', 'Email ou Password Invalide');
+        return new RedirectResponse($this->urlGenerator->generate('app_login'));
     }
    
    

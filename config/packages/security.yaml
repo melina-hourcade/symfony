@@ -21,6 +21,11 @@ security:
             logout: 
                 path: app_logout
 
+            remember_me: 
+                secret: '%kernel.secret%'
+                lifetime: 604800  
+                path: /   
+
             custom_authenticators:
                 - App\Security\LoginFormAuthenticator
 

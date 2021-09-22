@@ -10,12 +10,24 @@
 			<form novalidate method="post">
                 <div>
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required autofocus>
+                    <input 
+						type="email" 
+						id="email" 
+						name="email" 
+						value="{{app.session.get('
+						app_login_form_old_email')}}" required autofocus>
+
                 </div>
                 <div>
                     <label for="password">password:</label>
                     <input type="password" id="password" name="password" required>
                 </div>
+				<div>
+					<label for="_remember_me">
+						<input type="checkbox" for="_remember_me" name="_remember_me">
+						Se souvenir de moi
+					</label>
+				</div>
 
 				<input type="hidden" name="csrf_token" value="{{csrf_token('login_form')}}">
 
