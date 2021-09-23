@@ -1,13 +1,52 @@
 html {
-  background-color: #56baed;
+ 
 }
 
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
+   color: #17111d;
+   background: no-repeat center/130% url("../img/Sans_titre_1.jpg");
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 2vh;
+    align-items: center;
+    filter: drop-shadow(2px 2px 2px #5BA3A1) opacity(.5);
+   
+}
+
+.linkNavClass {
+   color: #17111d;
+   font-size: xx-large;
 }
 
 
+.navLink {
+    display: flex;
+    flex: 1;
+    flex-direction: row-reverse;
+    justify-content: end;
+}
+
+.navLinkLogo {
+    display: flex;
+    flex: 4;
+    justify-content: center;
+}
+
+.logoImg {
+      width: 12vh;
+     
+}
+
+.logoUserNav {
+  width:4vh;
+  margin-right: 1vh;
+}
 
 h2 {
   text-align: center;

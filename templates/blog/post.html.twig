@@ -1,0 +1,35 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block body %}
+	<h1>
+		ArticleUnique
+	</h1>
+
+	{# <h1> {{postArt.title}} </h1> #}
+	{# //	<p>{{ post.content }} </p> #}
+	{# //	{{ dump(post) }} #}
+		<div class="container"> <div class="row">
+		
+				<div class="col-md-4">
+					<div class="card">
+						<img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title">{{ post.title }}
+							</h5>
+							<p class="card-text">{{ post.content }}</p>
+							<p class="card-text">{{ post.author }}
+
+
+								-
+								{{ post.createdAt | date("d/m/Y") }}
+							</p>
+							<a href="/posts/{{ post.id }}" class="btn btn-primary">
+								GO ! </a>
+						
+							</div>
+						</div>
+					</div>
+			
+				<div class="row"></div>
+			{% endblock %}
+

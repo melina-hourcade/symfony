@@ -1,17 +1,29 @@
-<nav>
-    <ul>
-        <li><a href="{{ path('app_home') }}">Home</a></li>
+<div class="navBar">
+            <div class="navLink">
+               
+            </div>
+            <div class="navLink">
+               
+            </div>
+            <div class="navLinkLogo">
+                    <img class="logoImg" src="{{asset('img/logo_le_blog.png')}}" alt="logo le blog">
+            </div>
+
         {% if app.user %}
-        <li><a href="{{ path('app_logout') }}">Logout</a></li>
-           <li><a href="{{ path('app_homeConnect_index') }}">Accueil</a></li>
-
-
+            <div class="navLink">
+                <a class="linkNavClass" href="{{ path('app_logout') }}">Logout</a>
+            </div>
+            <div class="navLink">
+                <a class="linkNavClass" href="{{ path('app_homeConnect_index') }}">Accueil</a>
+            </div>
         {% else %}
-         <li><a href="{{ path('app_login') }}">Login</a></li>
-         <li><a href="{{ path('app_register') }}">Register</a></li>
+            <div class="navLink">
+                <a class="linkNavClass" href="{{ path('app_login') }}">Login</a>
+                    <img class="logoUserNav" src="{{asset('img/user.png')}}" alt="user img">
+            </div>
+            <div class="navLink">
+                <a class="linkNavClass"href="{{ path('app_register') }}">Register</a>
+            </div>
          {% endif %}
-    </ul>
-
-
-</nav>
+</div>
 

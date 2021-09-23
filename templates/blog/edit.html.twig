@@ -1,0 +1,20 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block body %}
+	<h1>
+		editArticcle {{ post.id }}
+	</h1>
+
+	{# <h1> {{postArt.title}} </h1> #}
+	{# //	<p>{{ post.content }} </p> #}
+	{# //	{{ dump(post) }} #}
+		<div class="container"> 
+        {{ form_start(form)}}
+        {{ form_rest(form) }}
+        <button class="btn btn-primary">SAVE ME !</button>
+        {{ form_end(form)}}
+        
+        </div>
+			
+{% endblock %}
+
