@@ -64,7 +64,7 @@ class HomeConnectController extends AbstractController
 
     /**
      * @Route("/posts/{id}", name="show_post")
-     * @IsGranted("ROLE_USER")
+     * 
      */
     public function show(PostArt $post) {
          return $this->render('blog/post.html.twig', [

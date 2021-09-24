@@ -29,7 +29,7 @@ class SecurityController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
            // dd($form->getData());
            $user = $form->getData();
-//we need a hashing about plainPassword (userRegstrationFormType.php)
+            //we need a hashing about plainPassword (userRegstrationFormType.php)
             $plainPassword = ($form['plainPassword']->getData());
 
             $user->setPassword($passwordEncoder->encodePassword($user, $plainPassword));

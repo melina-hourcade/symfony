@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Entity;
 use App\Repository\UserRepository;
@@ -40,6 +42,10 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, unique=true)
      */
     private $password;
+
+
+
+  
 
     public function getId(): ?int
     {
@@ -105,8 +111,7 @@ class User implements UserInterface
         //
     }
 
-
-
+ 
 
 
 
