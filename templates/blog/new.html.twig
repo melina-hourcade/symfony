@@ -1,0 +1,15 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block body %}
+	<h1>
+		New Article : 
+		{{ post.id }}
+	</h1>
+
+	
+{# //	{{ dump(post) }} #}
+{{ include ('layouts/partials/_form.html.twig', {form: form, button:'Add'}) }}
+
+
+{% endblock %}
+

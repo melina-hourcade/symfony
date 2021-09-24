@@ -15,7 +15,7 @@ class PostArtType extends AbstractType
             ->add('title')
             ->add('content')
             ->add('author')
-            // ->add('createdAt')
+            ->add('createdAt')
         ;
     }
 

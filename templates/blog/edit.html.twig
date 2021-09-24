@@ -8,13 +8,7 @@
 	{# <h1> {{postArt.title}} </h1> #}
 	{# //	<p>{{ post.content }} </p> #}
 	{# //	{{ dump(post) }} #}
-		<div class="container"> 
-        {{ form_start(form)}}
-        {{ form_rest(form) }}
-        <button class="btn btn-primary">SAVE ME !</button>
-        {{ form_end(form)}}
-        
-        </div>
+		{{ include ('layouts/partials/_form.html.twig', {form: form, button:'SAVE ME !'}) }}
 			
 {% endblock %}
 
