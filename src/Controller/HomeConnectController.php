@@ -73,7 +73,7 @@ class HomeConnectController extends AbstractController
     }
 
      /**
-     * @Route("/posts/{id}/edit", name="app_article_update")
+     * @Route("/posts/{id}/edit", name="app_article_update", methods="GET|POST" )
      * @IsGranted("ROLE_USER")
      */
     public function edit(PostArt $poste, Request $request, EntityManagerInterface $em) {
@@ -96,6 +96,27 @@ class HomeConnectController extends AbstractController
 
     }
 
+
+
+
+     /**
+     * @Route("/posts/{id}/edit", name="app_article_delete", methods={"DELETE"})
+     * @param PostArt $poste 
+     * @IsGranted("ROLE_USER")
+     * return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function delete(PostArt $poste, EntityManagerInterface $em, Request $request) {
+        // if ($this->isCsrfTokenValid('delete' . $poste->getId(), $request->get('token'))) {
+             $em->remove($poste);
+             $em->flush();
+            
+     //   return new Response('suppresion');
+        // }
+      //  dd('supprime');
+       
+   return $this->redirectToRoute('app_homeConnect_index');
+
+    }
     
 
   

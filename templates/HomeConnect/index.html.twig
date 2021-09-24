@@ -23,7 +23,14 @@
 						<p class="card-text">{{ post.author }} 		
 						- {{ post.createdAt | date("d/m/Y") }} </p>
 						<a href="/posts/{{ post.id }}" class="btn btn-primary"> GO ! </a>
-							<a  class="btn btn-secondary" href="/posts/{{post.id}}/edit"> UP ! </a>
+
+							<a  class="btn btn-secondary" href="{{ path('app_article_update', {id: post.id})}}"> UP ! </a>
+
+							<form method="post" action="{{ path('app_article_delete', {id: post.id})}}">
+								<input type="hidden" name="_method" value="DELETE">
+								{# <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ post.id)}}"> #}
+								<button class="btn btn-danger"> KILL </button>
+							</form>
 					</div>
 				</div>
 			</div>
